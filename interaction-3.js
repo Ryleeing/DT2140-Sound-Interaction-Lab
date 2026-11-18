@@ -54,6 +54,19 @@ bubble.createDSP(audioContext, 1024)
 function accelerationChange(accx, accy, accz) {
 }
 
+// TEST: button that mimics the device being dropped
+window.addEventListener('load', () => {
+    const btn = document.createElement('button');
+    btn.textContent = 'Simulate drop';
+    btn.style.cssText = 'position:fixed;top:10px;right:10px;z-index:1000;padding:12px;font-size:16px;';
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (audioContext.state === 'suspended') audioContext.resume();
+        deviceMoved();
+    });
+    document.body.appendChild(btn);
+});
+
 function rotationChange(rotx, roty, rotz) {
 }
 
@@ -73,7 +86,7 @@ function deviceTurned() {
 }
 function deviceShaken() {
     shaketimer = millis();
-    statusLabels[0].style("color", "pink");
+    // statusLabels[0].style("color", "pink");
 }
 
 function getMinMaxParam(address) {
@@ -102,10 +115,12 @@ function playAudio(pressure) {
         return;
     }
     console.log(pressure)
-    setTimeout(() => { dspNode.setParamValue("/bubble/Freeverb/0x00/Damp", 0.8)
+    dspNode.setParamValue("/bubble/Freeverb/0x00/Damp", 0.8)
 // dspNode.setParamValue("/bubble/Freeverb/0x00/Damp", 0.8)
 dspNode.setParamValue("/bubble/Freeverb/0x00/RoomSize", 0.72)
 dspNode.setParamValue("/bubble/bubble/freq", 332)
+    setTimeout(() => { 
+       
  }, 100);
 }
 
