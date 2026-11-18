@@ -58,7 +58,7 @@ function rotationChange(rotx, roty, rotz) {
 }
 
 function mousePressed() {
-    playAudio(mouseX/windowWidth)
+    playAudio()
     // Use this for debugging from the desktop!
 }
 
@@ -94,19 +94,20 @@ function getMinMaxParam(address) {
 //
 //==========================================================================================
 
-function playAudio(pressure) {
+function playAudio() {
     if (!dspNode) {
         return;
     }
     if (audioContext.state === 'suspended') {
         return;
     }
-    console.log(pressure)
-    setTimeout(() => { dspNode.setParamValue("/bubble/Freeverb/0x00/Damp", 0.8)
-// dspNode.setParamValue("/bubble/Freeverb/0x00/Damp", 0.8)
-dspNode.setParamValue("/bubble/Freeverb/0x00/RoomSize", 0.72)
-dspNode.setParamValue("/bubble/bubble/freq", 332)
- }, 100);
+    console.log("bubbles")
+    
+
+    dspNode.setParamValue("/bubble/drop", 1)
+    setTimeout(() => { dspNode.setParamValue("/bubble/drop", 0) }, 100);
+   
+   
 }
 
 //==========================================================================================
