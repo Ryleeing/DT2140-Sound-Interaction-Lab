@@ -65,7 +65,12 @@ function mousePressed() {
 function deviceMoved() {
     movetimer = millis();
     statusLabels[2].style("color", "pink");
-    playAudio();
+    console.log(movetimer)
+    if (movetimer > 25)
+    {
+        console.log("Entered")
+        playAudio()
+    }
 }
 
 function deviceTurned() {
