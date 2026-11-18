@@ -149,12 +149,11 @@ function playAudio(pressure) {
         return;
     }
     console.log(pressure)
-    dspNode.setParamValue("/bubble/Freeverb/0x00/Damp", 0.8)
-    dspNode.setParamValue("/bubble/Freeverb/0x00/RoomSize", 0.72)
-    dspNode.setParamValue("/bubble/bubble/freq", 332)
-    // "drop" is a trigger: 0 -> 1 starts a bubble, reset to 0 so the next call can trigger again
-    dspNode.setParamValue("/bubble/drop", 1)
-    setTimeout(() => { dspNode.setParamValue("/bubble/drop", 0) }, 100);
+    setTimeout(() => { dspNode.setParamValue("/bubble/Freeverb/0x00/Damp", 0.8)
+// dspNode.setParamValue("/bubble/Freeverb/0x00/Damp", 0.8)
+dspNode.setParamValue("/bubble/Freeverb/0x00/RoomSize", 0.72)
+dspNode.setParamValue("/bubble/bubble/freq", 332)
+ }, 100);
 }
 
 //==========================================================================================
