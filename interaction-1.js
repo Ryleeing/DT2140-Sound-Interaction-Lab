@@ -107,9 +107,11 @@ function playAudio() {
     // For example if you change to a bell sound, here you could use "/churchBell/gate" instead of
     // "/thunder/rumble".
     
-    dspNode.setParamValue("/bells/strikePosition", Math.random(5) + 1)
-    dspNode.setParamValue("/bells/gate", 1)
-    setTimeout(() => { dspNode.setParamValue("/bells/strikePosition", 0) }, 10);
+    dspNode.setParamValue("/englishBell/strikePosition", Math.random( 5) + 1)
+    dspNode.setParamValue("/englishBell/gate", 1)
+    
+    setTimeout(() => { dspNode.setParamValue("/englishBell/gate", 0) }, 100);
+    console.log("AudioTest3")
 }
 
 //==========================================================================================

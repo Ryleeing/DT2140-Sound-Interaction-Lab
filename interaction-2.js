@@ -106,9 +106,9 @@ function playAudio() {
     if (audioContext.state === 'suspended') {
         return;
     }
-    
-    dspNode.setParamValue("/Thunder/rumble", 1)
-    setTimeout(() => { dspNode.setParamValue("/englishBell/gate", 0) }, 100);
+
+    dspNode.setParamValue("/thunder/rumble", 1)
+    setTimeout(() => { dspNode.setParamValue("/thunder/rumble", 0) }, 100);
 }
 
 //==========================================================================================
